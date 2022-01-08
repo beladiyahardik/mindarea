@@ -4,9 +4,9 @@ const userLogin = async (req, res) => {
     try {
         const result = await User.find({}).where({ ...req.body })
         if (result.length) {
-            res.send(result)
+            res.send({userFound: true, result})
         } else {
-            res.send("User not found")
+            res.send({userFound: false, message: "User not found"})
         }
     }
     catch (err) {
@@ -21,9 +21,9 @@ const userSignup = async (req, res) => {
         })
         const result = await newUser.save()
         if (result)
-            res.send(result)
+            res.send({userCreate: true, result})
         else
-            res.send("Something went wrong")
+            res.send({userCreate: false, message: "User not created"})
     }
     catch (err) {
         res.send("Failed")
