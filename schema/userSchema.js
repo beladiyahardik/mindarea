@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  follow: {
+    type: String,
+    default: ['hardik']
+  },
   doj: {
     type: Date,
     required: true,

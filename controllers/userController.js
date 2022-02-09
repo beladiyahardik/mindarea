@@ -13,6 +13,7 @@ const userLogin = async (req, res) => {
         userId: result._id,
         fullname: result.fullname,
         birthday: result.birthday,
+        follow: result.follow,
         doj: result.doj,
       });
     } else {
@@ -36,6 +37,7 @@ const userSignup = async (req, res) => {
         userId: result._id,
         fullname: result.fullname,
         birthday: result.birthday,
+        follow: result.follow,
         doj: result.doj,
       });
     } else {

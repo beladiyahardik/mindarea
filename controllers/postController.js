@@ -13,6 +13,10 @@ const getPosts = async (req, res) => {
     res.send(result)
 }
 
+const fetchPost = async (req, res) => {
+    const result = await Post.find()
+}
+
 const deletePost = async (req, res) => {
     const result = await Post.deleteOne({_id: req.body.id})
     res.send(`delete ${result}`)
@@ -21,5 +25,6 @@ const deletePost = async (req, res) => {
 module.exports = {
     newPost,
     getPosts,
+    fetchPost,
     deletePost
 }
