@@ -18,15 +18,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  follow: {
-    type: String,
-    default: ['hardik']
-  },
   doj: {
     type: Date,
     required: true,
     default: Date.now,
   },
+  followers: {
+    type: Array
+  },
+  following: {
+    type: Array
+  }
 });
 
 module.exports = mongoose.model("User", userSchema);

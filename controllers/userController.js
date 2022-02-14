@@ -13,7 +13,8 @@ const userLogin = async (req, res) => {
         userId: result._id,
         fullname: result.fullname,
         birthday: result.birthday,
-        follow: result.follow,
+        followers: result.followers,
+        following: result.following,
         doj: result.doj,
       });
     } else {
@@ -37,14 +38,15 @@ const userSignup = async (req, res) => {
         userId: result._id,
         fullname: result.fullname,
         birthday: result.birthday,
-        follow: result.follow,
+        followers: result.followers,
+        following: result.following,
         doj: result.doj,
       });
     } else {
       res.send({ userCreate: false, message: "User not created" });
     }
   } catch (err) {
-    res.send("Failed");
+    res.send("Failed" + err);
   }
 };
 

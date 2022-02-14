@@ -10,11 +10,12 @@ const newPost = async (req, res) => {
 
 const getPosts = async (req, res) => {
     const result = await Post.find({})
-    res.send(result)
+    res.send(result.sort((a,b) => b.dop - a.dop))
 }
 
 const fetchPost = async (req, res) => {
-    const result = await Post.find()
+    const result = await Post.find({username: req.body.username})
+    res.send(result)
 }
 
 const deletePost = async (req, res) => {
